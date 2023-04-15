@@ -1,0 +1,307 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    display: grid;
+    grid-template-areas: "header header header header"
+                        "hero hero hero hero"
+                        "about about about about"
+                        "services services services services"
+                        "projects projects projects projects"
+                        "footer footer footer footer";
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* HEADER */
+
+.header{
+    grid-area: header;
+    background-color: #fff;
+}
+
+.header .header-container{
+    display: flex;
+    padding: 2rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 7,5rem;
+    /* Altura mínima para não ficar estranho no mobile */
+}
+
+.header h1{
+    font-size: 3rem;
+    font-weight: 700;
+    transition: 0.4s;
+    /* O transition é útil para dar ao elemento um tempo para aplicar, por exemplo, o hover */
+}
+
+.header a:hover h1{
+    color: #A98467;
+}
+
+/* HERO */
+.hero{
+    grid-area: hero;
+    height: 89vh;
+    /* Se tivesse colocado 100vh, o usuário não veria que tem mais conteúdo para baixo. Tática de design para fazer com que o usuário scrole para ver que tem mais conteúdo. */
+    background: url('../images/materiais.png') center center no-repeat;
+    background-size: cover;
+    /* para a imagem se adequar com o tamanho da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Esses 3 últimos foi para alinhar o h2 no centro da imagem */
+    position: relative;
+    /* position relative para ser a div pai da setinha que é absolute */
+}
+
+.hero h2{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+.hero:after{
+    content: url('../images/seta_preta.png');
+    position: absolute;
+    height: 3,5rem;
+    bottom: 4rem;
+    /* Posicionando a setinha dentro do hero */
+    animation: downarrow 0.6s infinite alternate ease-in-out;
+    /* animação da setinha. downarrow é um nome qualquer, 0.6s o tempo da animação, infinite para ficar fazendo a animação de forma infinita e alternate para ficar indo pra cima e pra baixo. Lembrando que não acontece nada até criar a animação */
+}
+
+@media(max-width:480px){
+    .hero{
+        height: 60vh;
+    }
+
+    .hero h2{
+        font-size: 2.5rem;
+    }
+}
+
+@-webkit-keyframes downarrow {
+    0% {-webkit-transform: translateY(0); opacity: 0.4;}
+    /* Cria o frame inicial que é o 0%*/
+    100% {-webkit-transform: translateY(0.4em); opacity: 0.9;}
+    /* Cria o frame final que é o 100% */
+    
+}
+
+/* ABOUT */
+.about{
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    /* Criou um grid com duas colunas */
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+    /* Esses dois ultimos foram para caso a tela seja maior que 1920 para deixar centralizado e nao quebrar. */
+}
+
+.about .image{
+    height: 100%;
+    width: 100%;
+}
+
+.about .item{
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* Elementos dentro de item (texto, titulo e botao). O padding foi para ficar melhor em dispositivos menores. */
+}
+
+.about .item h3{
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.about .item p{
+    font-size: 1.8rem;
+    margin: 30px 0;
+    font-weight: 400;
+}
+
+.about .item .btn-know-more{
+    font-size: 1.6rem;
+    align-self: flex-start;
+    /* O flex-start é útil para o botão só funcionar literalmente em cima do "saiba mais"  */
+}
+
+.about .item .btn-know-more:hover{
+    font-weight: 700;
+}
+
+
+
+
+.about .image.right{
+    background: url('../images/save-world.jpg') center center no-repeat;
+    /* Se atentar em como escreve as classes. Nesse caso como é uma classe dentro de outra, é importante escrever .image.right uma ao lado da outra. */
+    background-size: cover;
+}
+
+.about .image.left{
+    background: url('../images/reciclaveis.jpg') center center no-repeat;
+    /* Se atentar em como escreve as classes. Nesse caso como é uma classe dentro de outra, é importante escrever .image.right uma ao lado da outra. */
+    background-size: cover;
+}
+
+@media (max-width:480px){
+    .about .item{
+        text-align: center;
+    }
+    .about{
+        grid-template-columns: 1fr;
+        /* muda o grid pra informar que agora quero apenas uma coluna */
+        grid-template-rows: repeat(4, 1fr);
+        /* Informo que quero 4 linhas */
+
+    }
+}
+
+/* SERVICES */
+.services{
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 colunas */
+    text-align: center;
+    /* alinhar todos os elementos ao centro */
+}
+
+.services .service{
+    padding: 70px 20px;
+}
+
+.services .service img{
+    width: 250px;
+    margin-bottom: 30px;
+    /* Largura da imagem e distancia da imagem para o conteudo */
+}
+
+.services .service h3{
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.services .service p{
+    font-size: 2rem;
+    font-weight: 400;
+    max-width: 400px;
+    margin: 20px auto 0;
+    /* 20px pra cima, auto centralizado esquerda e direita e 0 pq nao quero distanciamento pra baixo*/
+    line-height: 25px;
+    /* aumentar a distancia entre as linhas */
+}
+
+.services .service:nth-child(1){
+    background-color: #588157;
+}
+
+.services .service:nth-child(2){
+    background-color: #A98467;
+}
+
+@media(max-width:480px){
+    .services{
+        grid-template-columns: 1fr;
+        /* uma coluna só */
+    }
+}
+/* PROJECTS */
+.projects{
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.projects img{
+    width: 100%;
+    /* sempre a largura da div */
+    height: 100%;
+    /* Se adequa a altura da div pai */
+    transition: 0.3s;
+}
+
+.projects a:hover img{
+    opacity: 0.8;
+}
+
+/* Quando alcancar essa altura, quebrar em duas colunas e duas linhas */
+@media(max-width:768px){
+    .projects{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media(max-width: 480px){
+    .projects{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+/* FOOTER */
+.footer{
+    grid-area: footer;
+    display: flex;
+    background-color: #588157;
+    flex-direction: column;
+    text-align: center;
+    padding: 10rem 0;
+}
+
+.footer h4{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.footer nav{
+    margin: 50px 0; 
+}
+
+.footer nav ul{
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 auto;
+    /*Quando determino uma largura é importante usar o margin 0 auto  */
+}
+
+.footer nav ul li a{
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 2rem;
+    transform: 0.3s;
+}
+
+.footer nav ul li a:hover{
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer .social i{
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.footer .social a{
+    margin: 20px;
+}
+
+.footer .social a:hover{
+    color: #fff;
+}
+
+
