@@ -1,28 +1,33 @@
-const express = require('express');
+const knexfile = require("../Database");
+const knex = require('../../knexfile');
+const User = require('../Models/Users');
+const verifyRegister = require('../Validates/Verify')
+const user = new User();
+const verify = verifyRegister()
 
 class UsersController{
-    async register(name, document, email, phone) {
+    async register(cpf, nome, data_nascimento, status_desconto) {
 
-        if(!name || !document || !email || !phone) return { success: false, message: 'Campos inexistentes' }
+        if(!cpf || !nome || !data_nascimento || !status_desconto) return { success: false, message: 'Campos inexistentes' }
 
         try {
 
-            const query = await knex('persons').withSchema('insole_pay').where({ email, phone, document }).first();
+            const query = await knex('clientes').withSchema('public').where({ data_nascimento, status_desconto, nome }).first();
             if (query) return { success: false, message: "Usuário já existe" }
 
-            if(!verify.isEmail(email)) return { success: false, message: "Email inválido"} 
+            if(!verify.isdata_nascimento(data_nascimento)) return { success: false, message: "data_nascimento inválido"} 
             
-            if (document.length === 11) {
-                if (!verify.isCPF(document)) return { success: false, message: "CPF inválido" }
+            if (nome.length === 11) {
+                if (!verify.isCPF(nome)) return { success: false, message: "CPF inválido" }
             }
-            if (document.length === 14) {
-                if (!verify.isCNPJ(document)) return { success: false, message: "CNPJ inválido" }
+            if (nome.length === 14) {
+                if (!verify.isCNPJ(nome)) return { success: false, message: "CNPJ inválido" }
             }
-            if (phone.length === 11) {
-                if(!verify.isPhone(phone)) return { success: false, message: "Telefone inválido" }
+            if (status_desconto.length === 11) {
+                if(!verify.isstatus_desconto(status_desconto)) return { success: false, message: " inválido" }
             }
 
-            await knex('persons').withSchema('insole_pay').insert({ name, document, email, phone });
+            await knex('clientes').withSchema('public').insert({ cpf, nome, data_nascimento, status_desconto });
 
             return { success: true, message: 'Cadastro realizado com sucesso' }
         
@@ -31,12 +36,9 @@ class UsersController{
     }
 }
 
-async personsList() {
-    return await user.findByUser();   
-}
+    async clientesList() {
+        return await user.findByUser();   
+    }
 
-async personsEmail(email){
-    return await user.findByEmail(email);
-}
 }
 module.exports = UsersController;
