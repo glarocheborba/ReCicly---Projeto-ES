@@ -6,7 +6,7 @@ class User  {
     async findByUser(){
         let clientes = await knex('clientes')
             .withSchema('public')
-            .select(['cpf', 'nome', 'data_nascimento', 'status_desconto', 'id'])
+            .select(['nome', 'cpf', 'data_nascimento', 'status_desconto', 'id'])
             return clientes;
         }
 }
