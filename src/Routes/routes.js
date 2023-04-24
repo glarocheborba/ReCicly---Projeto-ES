@@ -8,8 +8,8 @@ const UserModel = new User();
 const UserController = new UsersController();
 
 routes.post('/register', async (req, res) =>{
-    const {nome, cpf, data_nascimento, status_desconto} = req.body;
-    const clientes  = await UserController.register(nome, cpf, data_nascimento, status_desconto);
+    const {cpf, nome, data_nascimento, status_desconto} = req.body;
+    const clientes  = await UserController.register(cpf, nome, data_nascimento, status_desconto);
     return res.send(clientes);
 });
 

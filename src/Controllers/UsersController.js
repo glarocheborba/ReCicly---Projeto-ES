@@ -6,7 +6,7 @@ const user = new User();
 const verify = verifyRegister()
 
 class UsersController{
-    async register(nome, cpf, data_nascimento, status_desconto) {
+    async register(cpf, nome, data_nascimento, status_desconto) {
 
         if(!cpf || !nome || !data_nascimento || !status_desconto) return { success: false, message: 'Campos inexistentes' }
 
