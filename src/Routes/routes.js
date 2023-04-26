@@ -13,4 +13,9 @@ routes.post('/register', async (req, res) =>{
     return res.send(clientes);
 });
 
+routes.get('/list-users', async (req, res) => {
+    const clientes = await UserController.clientesList();
+    return res.send({ clientes });
+}); 
+
 module.exports = routes;

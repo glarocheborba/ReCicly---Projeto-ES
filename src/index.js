@@ -5,5 +5,5 @@ const app = express();
 app.use(express.json());
 app.use('/register', routes);
 console.log('servidor rodando')
-app.listen(3333);
+app.listen(3000);
 
