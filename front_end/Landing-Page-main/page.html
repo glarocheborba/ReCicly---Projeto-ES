@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReCicly</title>
+
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/css/font-awesome.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="/">
+                <h1 class="logo">ReCicly</h1>
+            </a>
+
+            <nav>
+                <input type="checkbox" name="" id="menu-hamburguer">
+                <label for="menu-hamburguer">
+                    <div class="menu">
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+                <!-- Parece um pouco estranho mas é necessário para se ter a animação de hamburguer no menu do site. Aquele menu hamburguer funciona como um checkbox -->
+
+                <ul>
+                    <li> <a href="#about">Sobre</a></li>
+                    <li> <a href="#services">Saiba mais</a></li>
+                    <li> <a href="#projects">Recicle</a></li>
+                    <li> <a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <h2>Faça parte da mudança, ReCicly!</h2>
+    </section>
+    <section class="about" id="about">
+        <div class="item">
+            <h3>Sistema de Reciclagem</h3>
+            <p>Nós somos uma empresa comprometida com a sustentabilidade e a inovação. Oferecemos um sistema de reciclagem através de embalagens com QR Code, que permite aos clientes de comércios acumular créditos e utilizá-los como forma de conseguir descontos em compras futuras.</p>
+        </div>
+        <div class="image right"></div>
+        <div class="image left"></div>
+        <div class="item">
+            <h3>Nosso Objetivo</h3>
+            <p>Promovemos um ecossistema sustentável, incentivando a reciclagem e o reuso de embalagens, ao mesmo tempo em que oferecemos benefícios e descontos para nossos clientes e parceiros comerciais. Com tecnologia de ponta e uma equipe altamente capacitada, estamos comprometidos em fornecer uma solução eficiente e escalável para promover a sustentabilidade em todo o mundo. Venha fazer parte dessa mudança!</p>
+        </div>
+        <!-- Criou 2 itens com duas imagens -->
+
+    </section>
+    <section class="services" id="services">
+        <div class="service">
+            <img src="./src/images/globo.png" alt="globo">
+            <div class="service-info">
+                <h3>Ajude a salvar o mundo</h3>
+                <p>Você já pensou em como pequenas ações podem fazer uma grande diferença no mundo? Com nosso sistema de reciclagem você pode fazer a sua parte para salvar o planeta. Ao comprar nosso produto, você estará incentivando a reciclagem de embalagens. Se torne uma empresa comprometida com a sustentabilidade.</p>
+            </div>
+        </div>
+        <div class="service">
+            <img src="./src/images/green-recicle.png" alt="simbolo-reciclagem">
+            <div class="service-info">
+                <h3>Adquira nosso produto</h3>
+                <p>Com nosso sistema, seus clientes acumulam créditos que podem ser ultilizados em compras futuras e sua empresa cresce de forma comprometida com o meio ambiente, aumentando as oportunidades de negócios, seus clientes e reduzindo tributos. Compre agora nosso produto e junte-se a nós nesta importante missão!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="project">
+            <a href="">
+                <img src="./src/images/planta.png" alt="tomates">
+            </a>
+        </div>
+
+        <div class="project">
+            <a href="">
+                <img src="./src/images/lixo.png" alt="landscape">
+            </a>
+        </div>
+
+        <div class="project">
+            <a href="">
+                <img src="./src/images/saco-lixo.png" alt="plants">
+            </a>
+        </div>
+
+        <div class="project">
+            <a href="">
+                <img src="./src/images/reciclagem.png" alt="flowers">
+            </a>
+        </div>
+    </section>
+    <footer class="footer" id="contact">
+        <h4>ReCicly - Sistema De Gerenciamento de Créditos</h4>
+
+        <nav>
+            <ul>
+                <li><a href="#about">Inicio</a></li>
+                <li><a href="#services">Nós</a></li>
+                <li><a href="#projects">Sobre</a></li>
+            </ul>
+        </nav>
+        <div class="social">
+            <a href="">
+                <i class="fab fa-facebook-square"></i>
+            </a>
+
+            <a href="https://www.instagram.com/pedrolcorreiaa/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+
+            <a href="">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
