@@ -7,11 +7,6 @@ module.exports = {
         const query = await knex('clientes').withSchema('public').where({nome, email, senha }).first();
 
 
-
-
-
-
-
     }
 }
 
